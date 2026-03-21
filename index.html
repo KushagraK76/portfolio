@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kushagra Kumar | Software Developer</title>
+    <meta name="description"
+        content="Portfolio of Kushagra Kumar — Full-stack developer, problem solver, and frugal innovator building impactful software.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Prevent theme flash on load -->
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+
+<body>
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>Kushagra<span class="logo-bracket">/&gt;</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#certificates" class="nav-link">Credentials</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section — Split Layout -->
+    <section class="hero" id="hero">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Available for opportunities
+                </div>
+                <h1 class="hero-name">
+                    Hi, I'm <span class="gradient-text">Kushagra Kumar</span>
+                </h1>
+                <p class="hero-tagline">
+                    I <span class="typing-text" id="typingText"></span><span class="typing-cursor">|</span>
+                </p>
+                <p class="hero-description">
+                    Full-stack developer focused on transforming ideas into powerful, real-world solutions. I build
+                    efficient, scalable systems with a strong emphasis on usability and performance.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary magnetic-btn">
+                        <span>View My Work</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn-outline magnetic-btn">
+                        <span>Get In Touch</span>
+                    </a>
+                    <a href="assets/cv.pdf" download class="btn btn-outline magnetic-btn btn-cv">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span>Download CV</span>
+                    </a>
+                </div>
+                <div class="hero-socials">
+                    <a href="mailto:kushagra7642@gmail.com" class="social-link" aria-label="Email" title="Email">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kushagra76/" target="_blank" rel="noopener noreferrer"
+                        class="social-link" aria-label="LinkedIn" title="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/KushagraK76" target="_blank" rel="noopener noreferrer"
+                        class="social-link" aria-label="GitHub" title="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="tel:+916299614785" class="social-link" aria-label="Phone" title="Phone">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Photo -->
+            <div class="hero-photo-wrapper">
+                <div class="profile-photo-container">
+                    <div class="profile-photo-ring"></div>
+                    <div class="profile-photo">
+                        <img src="assets/profile.jpg" alt="Kushagra Kumar — Software Developer" id="profileImg">
+                    </div>
+                    <div class="photo-decoration dec-1"></div>
+                    <div class="photo-decoration dec-2"></div>
+                    <div class="photo-decoration dec-3"></div>
+                    <div class="photo-status">
+                        <span class="status-dot"></span>
+                        B.Tech CSE • LPU
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator" id="scrollIndicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">01 — About</span>
+                <h2 class="section-title">A bit about <span class="gradient-text">me</span></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>
+                        I'm a Computer Science Engineering student at <strong>Lovely Professional University</strong>,
+                        driven by a relentless curiosity to build software that makes a real difference. I don't just
+                        write code — I craft solutions that bridge the gap between technology and human needs.
+                    </p>
+                    <p>
+                        Whether it's automating agricultural decisions with real-time weather data, creating
+                        frictionless file-sharing systems, or building intelligent location recommenders — I approach
+                        every project with the mindset of a <strong>frugal innovator</strong>: maximum impact, elegant
+                        simplicity.
+                    </p>
+                    <p>
+                        When I'm not coding, you'll find me exploring cloud infrastructures, diving deep into
+                        competitive problem-solving, or experimenting with generative AI.
+                    </p>
+                </div>
+                <div class="about-stats reveal">
+                    <div class="stat-card glass-card">
+                        <span class="stat-number" data-target="3">0</span>
+                        <span class="stat-label">Projects Built</span>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <span class="stat-number" data-target="3">0</span>
+                        <span class="stat-label">Certifications</span>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <span class="stat-number" data-target="35">0</span>
+                        <span class="stat-label">Hackathon Rank</span>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <span class="stat-number" data-target="6">0</span>
+                        <span class="stat-label">Tech Stack</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">02 — Skills</span>
+                <h2 class="section-title">My <span class="gradient-text">toolkit</span></h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category glass-card reveal">
+                    <div class="skill-category-header">
+                        <div class="skill-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Languages</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card reveal">
+                    <div class="skill-category-header">
+                        <div class="skill-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg>
+                        </div>
+                        <h3>Frameworks</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card reveal">
+                    <div class="skill-category-header">
+                        <div class="skill-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3>Tools & Databases</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Kali Linux</span>
+                        <span class="skill-tag">Blender</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card reveal">
+                    <div class="skill-category-header">
+                        <div class="skill-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h3>Soft Skills</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Team Player</span>
+                        <span class="skill-tag">Adaptability</span>
+                        <span class="skill-tag">Frugal Innovation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">03 — Projects</span>
+                <h2 class="section-title">Things I've <span class="gradient-text">built</span></h2>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1: AquaFarm -->
+                <article class="project-card glass-card tilt-card reveal">
+                    <div class="project-image">
+                        <img src="assets/aquafarm.png" alt="AquaFarm - Smart Irrigation Dashboard" loading="lazy">
+                        <div class="project-overlay">
+                            <a href="https://aquafarmclient.onrender.com/" target="_blank" rel="noopener noreferrer"
+                                class="project-link-icon" aria-label="View AquaFarm Live">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-date">Oct 2025</span>
+                            <span class="project-type">Full Stack</span>
+                        </div>
+                        <h3 class="project-title">AquaFarm</h3>
+                        <p class="project-desc">
+                            A full-stack smart irrigation management system that automates farming decisions using
+                            real-time weather data. Features a responsive dashboard for monitoring weather insights,
+                            irrigation status, and system controls.
+                        </p>
+                        <ul class="project-highlights">
+                            <li>Integrated external weather API for dynamic climate analysis</li>
+                            <li>Real-time monitoring dashboard for farmers</li>
+                            <li>Secure authentication & RESTful APIs</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span>React.js</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                            <span>Express.js</span>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: CliqDrop -->
+                <article class="project-card glass-card tilt-card reveal">
+                    <div class="project-image">
+                        <img src="assets/cliqdrop.png" alt="CliqDrop - Data Transfer System" loading="lazy">
+                        <div class="project-overlay">
+                            <a href="https://cliqdrop.onrender.com/" target="_blank" rel="noopener noreferrer"
+                                class="project-link-icon" aria-label="View CliqDrop Live">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-date">Oct 2025</span>
+                            <span class="project-type">Full Stack</span>
+                        </div>
+                        <h3 class="project-title">CliqDrop Data Transfer</h3>
+                        <p class="project-desc">
+                            A frictionless data-transfer system enabling quick text/file sharing through auto-generated
+                            codes. No accounts, no pairing — just instant sharing across any device.
+                        </p>
+                        <ul class="project-highlights">
+                            <li>70% faster sharing time vs. traditional methods</li>
+                            <li>Cross-platform with secure temporary sessions</li>
+                            <li>Clean UI for strangers, teams & multi-device workflows</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>Node.js</span>
+                            <span>Real-time</span>
+                            <span>File API</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: Smart-Locator -->
+                <article class="project-card glass-card tilt-card reveal">
+                    <div class="project-image">
+                        <img src="assets/smartlocator.png" alt="Smart Locator - Tourist Attraction Recommender"
+                            loading="lazy">
+                        <div class="project-overlay">
+                            <a href="https://smartlocator.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                class="project-link-icon" aria-label="View Smart Locator Live">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-date">Feb 2025</span>
+                            <span class="project-type">Frontend + AI</span>
+                        </div>
+                        <h3 class="project-title">Smart-Locator</h3>
+                        <p class="project-desc">
+                            A Tourist Attraction Recommender powered by Gemini API with Google Maps integration.
+                            Provides dynamic, location-based suggestions with category filtering and real-time
+                            navigation.
+                        </p>
+                        <ul class="project-highlights">
+                            <li>Gemini API-powered dynamic suggestions</li>
+                            <li>Google Maps integration for real-time navigation</li>
+                            <li>Dark mode, favorites system & category filters</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>Gemini API</span>
+                            <span>Google Maps</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates & Achievements Section -->
+    <section class="section" id="certificates">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">04 — Credentials</span>
+                <h2 class="section-title">Certificates & <span class="gradient-text">Achievements</span></h2>
+            </div>
+            <div class="credentials-grid">
+                <div class="credentials-column">
+                    <h3 class="credentials-subtitle reveal">Certifications</h3>
+                    <div class="cert-list">
+                        <div class="cert-card glass-card reveal">
+                            <div class="cert-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="8" r="7"></circle>
+                                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                                </svg>
+                            </div>
+                            <div class="cert-info">
+                                <h4><a href="https://drive.google.com/file/d/1jZ-bNgvrXm2cQi8l2UD0Aac5p7a02yl6/view"
+                                        target="_blank" rel="noopener noreferrer">Cloud Computing</a></h4>
+                                <p>NPTEL</p>
+                                <span class="cert-date">Nov 2025</span>
+                            </div>
+                        </div>
+                        <div class="cert-card glass-card reveal">
+                            <div class="cert-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="8" r="7"></circle>
+                                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                                </svg>
+                            </div>
+                            <div class="cert-info">
+                                <h4><a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=237F172C074D3DDF38F0D8C4B46605A6C59A76BD9BAF05A0FE902FD813E42A41"
+                                        target="_blank" rel="noopener noreferrer">Oracle Cloud Infrastructure Developer
+                                        Professional</a></h4>
+                                <p>Oracle</p>
+                                <span class="cert-date">Oct 2024</span>
+                            </div>
+                        </div>
+                        <div class="cert-card glass-card reveal">
+                            <div class="cert-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="8" r="7"></circle>
+                                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                                </svg>
+                            </div>
+                            <div class="cert-info">
+                                <h4><a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=35B49C2A6040B273CDEE6BC0DFB4462906026F9AD8ED1A8909D1975A43A0A49D"
+                                        target="_blank" rel="noopener noreferrer">Generative AI Professional</a></h4>
+                                <p>Oracle</p>
+                                <span class="cert-date">Nov 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="credentials-column">
+                    <h3 class="credentials-subtitle reveal">Achievements</h3>
+                    <div class="achievement-card glass-card reveal">
+                        <div class="achievement-badge">
+                            <span class="achievement-rank">TOP 35</span>
+                            <span class="achievement-scope">National Level</span>
+                        </div>
+                        <div class="achievement-info">
+                            <h4>ZOHO Cliqtrix Hackathon</h4>
+                            <p>
+                                Secured a Top 35 rank nationally by developing a custom automation bot for the Zoho Cliq
+                                platform with enhanced functionality to boost user productivity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">05 — Education</span>
+                <h2 class="section-title">My <span class="gradient-text">journey</span></h2>
+            </div>
+            <div class="education-timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-header">
+                            <h3>Lovely Professional University</h3>
+                            <span class="timeline-location">Phagwara, Punjab</span>
+                        </div>
+                        <p class="timeline-degree">B.Tech — Computer Science & Engineering</p>
+                        <span class="timeline-date">Aug 2023 — Present</span>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-header">
+                            <h3>GD Mission Public School</h3>
+                            <span class="timeline-location">Muzaffarpur, Bihar</span>
+                        </div>
+                        <p class="timeline-degree">Intermediate — 67.4%</p>
+                        <span class="timeline-date">Mar 2020 — May 2022</span>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-header">
+                            <h3>St. John's Academy</h3>
+                            <span class="timeline-location">Hajipur, Bihar</span>
+                        </div>
+                        <p class="timeline-degree">Matriculation — 88.7%</p>
+                        <span class="timeline-date">Mar 2018 — May 2020</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">06 — Contact</span>
+                <h2 class="section-title">Let's <span class="gradient-text">connect</span></h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-text reveal">
+                    <p>
+                        I'm currently looking for new opportunities and my inbox is always open.
+                        Whether you have a question, want to collaborate, or just want to say hi — I'll do my best to
+                        get back to you!
+                    </p>
+                    <div class="contact-links">
+                        <a href="mailto:kushagra7642@gmail.com" class="contact-link glass-card">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <div>
+                                <span class="contact-link-label">Email</span>
+                                <span class="contact-link-value">kushagra7642@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kushagra76/" target="_blank" rel="noopener noreferrer"
+                            class="contact-link glass-card">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                            <div>
+                                <span class="contact-link-label">LinkedIn</span>
+                                <span class="contact-link-value">kushagra76</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/KushagraK76" target="_blank" rel="noopener noreferrer"
+                            class="contact-link glass-card">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg>
+                            <div>
+                                <span class="contact-link-label">GitHub</span>
+                                <span class="contact-link-value">KushagraK76</span>
+                            </div>
+                        </a>
+                        <a href="tel:+916299614785" class="contact-link glass-card">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            <div>
+                                <span class="contact-link-label">Phone</span>
+                                <span class="contact-link-value">+91 6299614785</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form glass-card reveal" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="formName" name="name" placeholder=" " required>
+                        <label for="formName">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="formEmail" name="email" placeholder=" " required>
+                        <label for="formEmail">Your Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="formMessage" name="message" rows="5" placeholder=" " required></textarea>
+                        <label for="formMessage">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary magnetic-btn" id="submitBtn">
+                        <span>Send Message</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <span class="footer-logo">
+                    <!-- span class="logo-bracket">&lt;</span>KK<span class="logo-bracket"> /&gt;</span> -->
+                </span>
+                <p>Designed & Built by Kushagra Kumar</p>
+                <!-- <p class="footer-year">&copy; </p> -->
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
