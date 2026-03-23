@@ -106,7 +106,7 @@
                             <polyline points="7 10 12 15 17 10"></polyline>
                             <line x1="12" y1="15" x2="12" y2="3"></line>
                         </svg>
-                        <span>Download CV</span>
+                        <span>Download Resume</span>
                     </a>
                 </div>
                 <div class="hero-socials">
@@ -147,21 +147,10 @@
                     </a>
                 </div>
             </div>
-
-            <!-- Profile Photo -->
+            <!-- 3D Developer Model -->
             <div class="hero-photo-wrapper">
-                <div class="profile-photo-container">
-                    <div class="profile-photo-ring"></div>
-                    <div class="profile-photo">
-                        <img src="port.jpeg" alt="Kushagra Kumar — Software Developer" id="profileImg">
-                    </div>
-                    <div class="photo-decoration dec-1"></div>
-                    <div class="photo-decoration dec-2"></div>
-                    <div class="photo-decoration dec-3"></div>
-                    <div class="photo-status">
-                        <span class="status-dot"></span>
-                        B.Tech CSE • LPU
-                    </div>
+                <div class="hero-3d-container" id="hero3dContainer">
+                    <canvas id="hero3dCanvas"></canvas>
                 </div>
             </div>
         </div>
@@ -177,9 +166,14 @@
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag">01 — About</span>
-                <h2 class="section-title">A bit about <span class="gradient-text">me</span></h2>
+                <h2 class="section-title">About <span class="gradient-text">me</span></h2>
             </div>
             <div class="about-grid">
+                <div class="about-photo-col reveal">
+                    <div class="about-photo-wrapper">
+                        <img src="port.jpeg" alt="Kushagra Kumar" class="about-photo">
+                    </div>
+                </div>
                 <div class="about-text reveal">
                     <p>
                         I'm a Computer Science Engineering student at <strong>Lovely Professional University</strong>,
@@ -197,23 +191,23 @@
                         competitive problem-solving, or experimenting with generative AI.
                     </p>
                 </div>
-                <div class="about-stats reveal">
-                    <div class="stat-card glass-card">
-                        <span class="stat-number" data-target="3">0</span>
-                        <span class="stat-label">Projects Built</span>
-                    </div>
-                    <div class="stat-card glass-card">
-                        <span class="stat-number" data-target="3">0</span>
-                        <span class="stat-label">Certifications</span>
-                    </div>
-                    <div class="stat-card glass-card">
-                        <span class="stat-number" data-target="35">0</span>
-                        <span class="stat-label">Hackathon Rank</span>
-                    </div>
-                    <div class="stat-card glass-card">
-                        <span class="stat-number" data-target="6">0</span>
-                        <span class="stat-label">Tech Stack</span>
-                    </div>
+            </div>
+            <div class="about-stats reveal">
+                <div class="stat-card glass-card">
+                    <span class="stat-number" data-target="3">0</span>
+                    <span class="stat-label">Projects Built</span>
+                </div>
+                <div class="stat-card glass-card">
+                    <span class="stat-number" data-target="3">0</span>
+                    <span class="stat-label">Certifications</span>
+                </div>
+                <div class="stat-card glass-card">
+                    <span class="stat-number" data-target="35">0</span>
+                    <span class="stat-label">Hackathon Rank</span>
+                </div>
+                <div class="stat-card glass-card">
+                    <span class="stat-number" data-target="6">0</span>
+                    <span class="stat-label">Tech Stack</span>
                 </div>
             </div>
         </div>
@@ -300,10 +294,10 @@
                         <h3>Soft Skills</h3>
                     </div>
                     <div class="skill-tags">
-                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Problem-Solving</span>
                         <span class="skill-tag">Team Player</span>
                         <span class="skill-tag">Adaptability</span>
-                        <span class="skill-tag">Frugal Innovation</span>
+                        <span class="skill-tag">Frugal Innovator</span>
                     </div>
                 </div>
             </div>
@@ -678,6 +672,7 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
 
